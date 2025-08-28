@@ -1,0 +1,7 @@
+{
+    "editor.formatOnPaste": false,
+    "explorer.excludeGitIgnore": false,
+    "explorer.fileNesting.enabled": false,
+    "maven.showInExplorerContextMenu": true,
+    "scm.compactFolders": false
+}
