@@ -12,6 +12,10 @@ public class ContaBancaria {
     this.saldo += valor;
   }
 
+  public int getNumeroConta() {
+    return this.numeroConta;
+  }
+
   public void sacar(double valor) {
     if (this.saldo >= valor && valor < 0) {
       this.saldo -= valor;
