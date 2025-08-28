@@ -1,22 +1,22 @@
 package dimensao.bidimensional;
 
 public class TrianguloRetangulo {
-    float cateto1;
-    float cateto2;
-    float hipotenusa;
+    double cateto1;
+    double cateto2;
+    double hipotenusa;
     // float alturaHipotenusa;
 
-    public TrianguloRetangulo(float cateto1, float cateto2, float hipotenusa) {
+    public TrianguloRetangulo(double cateto1, double cateto2, double hipotenusa) {
         this.cateto1 = cateto1;
         this.cateto2 = cateto2;
         this.hipotenusa = hipotenusa;
     }
 
-    float area() {
+    double area() {
         return cateto1*cateto2/2;
     }
 
-    float perimetro() {
+    double perimetro() {
         return cateto1+cateto2+hipotenusa;
     }
     
