@@ -13,11 +13,19 @@ public class TrianguloRetangulo {
     }
 
     double area() {
+        return this.cateto1*this.cateto2/2.0;
+    }
+
+    double area(double cateto1, double cateto2) {
         return cateto1*cateto2/2.0;
     }
 
     double perimetro() {
-        return cateto1+cateto2+hipotenusa;
+        return this.cateto1+this.cateto2+this.hipotenusa;
+    }
+
+    double perimetro(double x, double y, double z) {
+        return x+y+z;
     }
     
 }
