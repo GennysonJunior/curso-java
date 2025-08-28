@@ -42,7 +42,7 @@ public class Exerc01_Geometria {
         // TODO 18 através do objeto, atribua valor dos atributos diretamente
         // TODO 19 escreva como comentário: é possível realizar esta atribuição? Justifique.
         /*
-         * não, pois o contrutor da classe está com o modificador "default", por tanto, não pode ser chamada por uma classe de outro pacote.
+         * não, pois o construtor da classe está com o modificador "default", por tanto, não pode ser chamado por uma classe de outro pacote.
         */
         // TODO 20 escreva como comentário: o que pode ser feito para resolver este erro?
         /*
