@@ -13,7 +13,7 @@ public class TrianguloRetangulo {
     }
 
     double area() {
-        return cateto1*cateto2/2;
+        return cateto1*cateto2/2.0;
     }
 
     double perimetro() {
