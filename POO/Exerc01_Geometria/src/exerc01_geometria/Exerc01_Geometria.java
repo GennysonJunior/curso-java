@@ -23,7 +23,7 @@ public class Exerc01_Geometria {
 
     public static void main(String[] args) {
         // TODO 12 crie aqui um objeto da classe TrianguloRetangulo
-       TrianguloRetangulo tr = new TrianguloRetangulo(3.0f,4.0f,5.0f); 
+        TrianguloRetangulo tr = new TrianguloRetangulo(3.0f,4.0f,5.0f); 
         // TODO 13 escreva como comentário: por que aconteceu um erro na criação do objeto?
         /*
          * porque, a classe "TrianguloRetangulo" está como o modificador "default" (só pode ser acessada por classes do mesmo pacote).
