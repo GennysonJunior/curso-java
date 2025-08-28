@@ -3,7 +3,9 @@ package exerc01_geometria;
 import dimensao.bidimensional.TrianguloRetangulo;
 
 public class Exerc01_Geometria {
-    
+    // Nome: Gennyson Augusto Kauati Veiga Junior
+    // Matrícula: 04028708
+
     // TODO 1 crie um pacote chamado dimensao
     // TODO 2 dentro do pacote dimensao, crie outro pacote chamado bidimensional
     // TODO 3 dentro do pacote dimensao.bidimensional, crie a classe TrianguloRetangulo
@@ -30,7 +32,7 @@ public class Exerc01_Geometria {
         */
         // TODO 14 escreva como comentário: o que pode ser feito para resolver o erro?
         /*
-         * basta apenas adicionar o modificador "public", assim a classe pode ser acessada por classes de outro pacote. 
+        * basta apenas adicionar o modificador "public", assim a classe pode ser acessada por classes de outro pacote. 
         */
         // TODO 15 altere o modificador da classe TrianguloRetangulo para public
         // TODO 16 escreva como comentário: por que o erro continua?
