@@ -51,6 +51,7 @@ public class Calculadora {
                 res = "Resposta da divisão: " + (this.num1 / this.num2);
         }
 
+        JOptionPane.showMessageDialog(null, res);
         return res;
     }
 }
