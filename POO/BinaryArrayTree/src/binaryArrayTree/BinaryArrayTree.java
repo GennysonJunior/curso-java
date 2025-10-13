@@ -1,5 +1,7 @@
 package binaryArrayTree;
 
+import java.util.function.Predicate;
+
 public class BinaryArrayTree<T> {
     private No<T>[] tree = new No[1];
     private int indexNode = 0;
@@ -21,22 +23,25 @@ public class BinaryArrayTree<T> {
         return this.tree;
     }
 
-    public void data(T data) {
+    public BinaryArrayTree<T> data(T data) {
         this.tree[this.indexNode].data = data;
+        return this;
     }
 
     public T data() {
         return this.tree[this.indexNode].data;
     }
 
-    public void back() {
+    public BinaryArrayTree<T> back() {
         for (int i = 0; i < this.tree.length; i++) if (this.tree[i].left == this.indexNode || this.tree[i].right == this.indexNode) {
             this.indexNode = i;
             break;
         }
+
+        return this;
     }
 
-    public void left(T data) {
+    public BinaryArrayTree<T> left(T data) {
         No<T>[] newTree = new No[this.tree.length + 1];
         int cont = 0;
         for (No<T> n : this.tree) {
@@ -53,9 +58,11 @@ public class BinaryArrayTree<T> {
 
         this.tree = newTree;
         this.tree[this.indexNode].left = cont;
+
+        return this;
     }
 
-    public void right(T data) {
+    public BinaryArrayTree<T> right(T data) {
         No<T>[] newTree = new No[this.tree.length + 1];
         int cont = 0;
         for (No<T> n : this.tree) {
@@ -72,14 +79,40 @@ public class BinaryArrayTree<T> {
 
         this.tree = newTree;
         this.tree[this.indexNode].right = cont;
+
+        return this;
     }
 
-    public void left() {
+    public BinaryArrayTree<T> left() {
         this.indexNode = this.tree[this.indexNode].left;
+        return this;
     }
 
-    public void right() {
+    public BinaryArrayTree<T> right() {
         this.indexNode = this.tree[this.indexNode].right;
+        return this;
+    }
+
+    public boolean contains(T value) {
+        boolean res = false;
+        for (No<T> n : this.tree) {
+            if (n.data == value) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+
+    public boolean where(Predicate<T> pred) {
+        boolean res = false;
+        for (No<T> n : this.tree) {
+            if (pred.test(n.data)) {
+                res = true;
+            }
+        }
+
+        return res;
     }
 
     @Override

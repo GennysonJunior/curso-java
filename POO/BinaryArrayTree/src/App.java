@@ -7,10 +7,7 @@ public class App {
          *           / \
          *          b  >c
         */          
-        t.data("a");
-        t.left("b");
-        t.right("c");
-        t.right();
+        t.data("a").left("b").right("c").right();
         System.out.println(t);
 
         /*
@@ -20,9 +17,7 @@ public class App {
          *              / \
          *            >d   e
          */
-        t.left("d");
-        t.right("e");
-        t.left();
+        t.left("d").right("e").left();
         System.out.println(t);
 
         System.out.println(t.data());
