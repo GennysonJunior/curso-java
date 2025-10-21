@@ -32,5 +32,7 @@ public class App {
          */
         System.out.println(t);
 
+        BinaryArrayTree<Integer> n = t.<Integer>map(s -> 2);
+        System.out.println(n);
     }
 }

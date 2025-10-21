@@ -2,10 +2,10 @@ package binaryArrayTree;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.function.Predicate;
+import java.util.function.Function;
 
 public class BinaryArrayTree<T> {
-    private No<T>[] tree = new No[1];
+    private No<T>[] tree = (No<T>[]) new No<?>[1];
     private int indexNode = 0;
     private int size = 1;
     private int capacity = 1;
@@ -25,6 +25,22 @@ public class BinaryArrayTree<T> {
         this.tree[0].right = -1;
     }
 
+    private BinaryArrayTree(No<T>[] newTree, int newIndexNode, int newSize, int newCapacity) {
+        this.tree = newTree;
+        this.indexNode = newIndexNode;
+        this.size = newSize;
+        this.capacity = newCapacity;
+    }
+
+    public void node(int value) throws BinaryArrayTreeError {
+        if (value >= 0 && value < size) this.indexNode = value;
+        else throw new BinaryArrayTreeError("Valor está fora do rage 0 - " + (size - 1));
+    }
+
+    public int node(){
+        return this.indexNode;
+    }
+
     private void garanteEspaco() {
         if (this.size >= this.capacity) {
             this.capacity *= 2;
@@ -32,7 +48,7 @@ public class BinaryArrayTree<T> {
             for (int i = 0; i < size; i++) {
                 newTree[i] = tree[i];
             }
-            tree = newTree;
+            this.tree = newTree;
         }
     }
 
@@ -105,16 +121,25 @@ public class BinaryArrayTree<T> {
         }
         return res;
     }
-
-    public boolean where(Predicate<T> pred) {
-        boolean res = false;
-        for (int i = 0; i < size; i++) {
-            if (pred.test(this.tree[i].data)) {
-                res = true;
-            }
+    
+    public <R> BinaryArrayTree<R> map(Function<T, R> pred) {
+        No<R>[] newNo = new No[this.size];
+        for (int i = 0; i < this.size; i++) {
+            newNo[i] = new No<R>();
+            newNo[i].data = pred.apply(this.tree[i].data);
+            newNo[i].left = this.tree[i].left;
+            newNo[i].right = this.tree[i].right;
+            newNo[i].parent = this.tree[i].parent;
         }
+        BinaryArrayTree<R> newTree = new BinaryArrayTree<R>(newNo, this.indexNode, this.size, this.size);
+        return newTree;
+    }
 
-        return res;
+    public BinaryArrayTree<T> forEach(Function<T, T> pred) {
+        for (int i = 0; i < this.size; i++) {
+            this.tree[i].data = pred.apply(this.tree[i].data);
+        }
+        return this;
     }
 
     @Override
@@ -124,7 +149,6 @@ public class BinaryArrayTree<T> {
             if (i < this.size - 1) res += ((i == this.indexNode) ? "> " : "") + "(data: " + this.tree[i].data + ", left: " + this.tree[i].left + ", right: " + this.tree[i].right + "),\n";
             else if (i == this.size - 1) res += ((i == this.indexNode) ? "> " : "") + "(data: " + this.tree[i].data + ", left: " + this.tree[i].left + ", right: " + this.tree[i].right + ")}";
         }
-
         return res;
     }
 }
