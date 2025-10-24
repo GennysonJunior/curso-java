@@ -34,7 +34,7 @@ public class BinaryArrayTree<T> {
 
     public void node(int value) throws BinaryArrayTreeError {
         if (value >= 0 && value < size) this.indexNode = value;
-        else throw new BinaryArrayTreeError("Valor está fora do rage 0 - " + (size - 1));
+        else throw new BinaryArrayTreeError("Valor está fora do range 0 - " + (size - 1));
     }
 
     public int node(){
@@ -137,21 +137,22 @@ public class BinaryArrayTree<T> {
         return Arrays.copyOfRange(this.tree, 0, this.size);
     }
 
-    public BinaryArrayTree<T> init(T data) {
-        if (this.tree[this.indexNode] != null) this.tree[this.indexNode].data = data;
-        else {
-            this.tree[this.indexNode] = new No<T>();
-            this.tree[this.indexNode].data = data;
-            this.tree[this.indexNode].parent = -1;
-            this.tree[this.indexNode].left = -1;
-            this.tree[this.indexNode].right = -1;
-            this.size++;
-        }
+    public BinaryArrayTree<T> init() {
+        this.tree[this.indexNode] = new No<T>();
+        this.tree[this.indexNode].parent = -1;
+        this.tree[this.indexNode].left = -1;
+        this.tree[this.indexNode].right = -1;
+        this.size++;
         return this;
     }
 
     public T data() {
         return this.tree[this.indexNode].data;
+    }
+
+    public BinaryArrayTree<T> data(T value) {
+        this.tree[this.indexNode].data = value;
+        return this;
     }
 
     public BinaryArrayTree<T> back() throws BinaryArrayTreeError {

@@ -7,7 +7,7 @@ public class App {
          *           / \
          *          c  >b
         */          
-        t.init("a").left("c").right("b").right();
+        t.init().data("a").left("c").right("b").right();
         System.out.println(t);
 
         /*
